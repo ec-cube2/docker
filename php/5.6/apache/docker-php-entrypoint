@@ -3,6 +3,8 @@ set -e
 
 BASE="/var/www/app"
 
+rm -f /usr/local/etc/php/conf.d/docker.ini
+
 # php config
 if [ -n "${TZ}" ]; then
     echo "date.timezone = ${TZ}" >> /usr/local/etc/php/conf.d/docker.ini
@@ -58,36 +60,6 @@ if [ -n "${PHP_REALPATH_CACHE_SIZE}" ]; then
 fi
 if [ -n "${PHP_REALPATH_CACHE_TTL}" ]; then
     echo "realpath_cache_ttl = ${PHP_REALPATH_CACHE_TTL}" >> /usr/local/etc/php/conf.d/docker.ini
-fi
-
-
-# php-fpm config
-if [ -n "${PHPFPM_PM_MAX_CHILDREN}" ]; then
-    sed -i -e "s|^pm\.max_children = 5|pm.max_children = ${PHPFPM_PM_MAX_CHILDREN}|" /usr/local/etc/php-fpm.d/www.conf
-fi
-
-if [ -n "${PHPFPM_PM_START_SERVERS}" ]; then
-    sed -i -e "s|^pm\.start_servers = 2|pm.start_servers = ${PHPFPM_PM_START_SERVERS}|" /usr/local/etc/php-fpm.d/www.conf
-fi
-
-if [ -n "${PHPFPM_PM_MIN_SPARE_SERVERS}" ]; then
-    sed -i -e "s|^pm\.min_spare_servers = 1|pm.min_spare_servers = ${PHPFPM_PM_MIN_SPARE_SERVERS}|" /usr/local/etc/php-fpm.d/www.conf
-fi
-
-if [ -n "${PHPFPM_PM_MAX_SPARE_SERVERS}" ]; then
-    sed -i -e "s|^pm\.max_spare_servers = 3|pm.max_spare_servers = ${PHPFPM_PM_MAX_SPARE_SERVERS}|" /usr/local/etc/php-fpm.d/www.conf
-fi
-
-if [ -n "${PHPFPM_PM_STATUS_PATH}" ]; then
-    sed -i -e "s|^;pm.status_path = /status|pm.status_path = ${PHPFPM_PM_STATUS_PATH}|" /usr/local/etc/php-fpm.d/www.conf
-fi
-
-if [ -n "${PHPFPM_PING_PATH}" ]; then
-    sed -i -e "s|^;ping.path = /ping|ping.path = ${PHPFPM_PING_PATH}|" /usr/local/etc/php-fpm.d/www.conf
-fi
-
-if [ -n "${PHPFPM_REQUEST_TERMINATE_TIMEOUT}" ]; then
-    sed -i -e "s|^;request_terminate_timeout = 0|request_terminate_timeout = ${PHPFPM_REQUEST_TERMINATE_TIMEOUT}|" /usr/local/etc/php-fpm.d/www.conf
 fi
 
 
