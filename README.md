@@ -17,7 +17,7 @@ PHP
 - ext-gd
 - ext-mcrypt
 - ext-mysql
-- ext-mysqli (PHP 7以上)
+- ext-mysqli
 - ext-opcache
 - ext-pgsql
 - ext-zip
@@ -36,20 +36,20 @@ PHP
 | PHP_POST_MAX_SIZE | post_max_size |
 | PHP_UPLOAD_MAX_FILESIZE | upload_max_filesize |
 
-# Configure OPcache for Maximum Performance
+Configure OPcache for Maximum Performance
 
 | ENV | ini | Default |
 | --- | --- | --- |
 | PHP_OPCACHE_MEMORY_CONSUMPTION | opcache.memory_consumption |
 | PHP_OPCACHE_MAX_ACCELERATED_FILES | opcache.max_accelerated_files |
 
-# Don't Check PHP Files Timestamps
+Don't Check PHP Files Timestamps
 
 | ENV | ini | Default |
 | --- | --- | --- |
 | PHP_OPCACHE_VALIDATE_TIMESTAMPS | opcache.validate_timestamps |
 
-# Configure the PHP realpath Cache
+Configure the PHP realpath Cache
 
 | ENV | ini | Default |
 | --- | --- | --- |
