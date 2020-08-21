@@ -15,8 +15,8 @@ PHP
 
 - ext-apcu
 - ext-gd
-- ext-mcrypt
-- ext-mysql
+- ext-mcrypt (5.6のみ)
+- ext-mysql (5.6のみ)
 - ext-mysqli
 - ext-opcache
 - ext-pgsql
@@ -76,6 +76,20 @@ Nginx
 
 EC-CUBEデフォルトで必要な設定が含まれています。
 
+以下は環境変数で設定可能です。
+
+| ENV | conf | Default |
+| --- | --- | --- |
+| NGINX_SERVER_NAME | server_name | localhost |
+| NGINX_ROOT | root | /usr/share/nginx/html |
+| NGINX_REAL_IP_HEADER | real_ip_header |  |
+| NGINX_SET_REAL_IP_FROM | set_real_ip_from |  |
+| FASTCGI_PASS | fastcgi_pass | 127.0.0.1:9000 |
+| FASTCGI_READ_TIMEOUT | fastcgi_read_timeout | 60 |
+| FASTCGI_SEND_TIMEOUT | fastcgi_send_timeout | 60 |
+| FASTCGI_BUFFERS | fastcgi_buffers | 8 8k |
+| FASTCGI_BUFFER_SIZE | fastcgi_buffer_size | 8k |
+
 
 EC-CUBE 2.13
 ------------
@@ -95,7 +109,7 @@ EC-CUBE 2.13
 
 MySQL
 
-- ext-mysql
+- ext-mysql (5.6のみ)
 - ext-mysqli
 
 PostgreSQL
@@ -210,3 +224,7 @@ Apache
 
 `eccube2/php:7.4-apache`
 
+Alpine は？
+-----------------
+
+See https://qastack.jp/superuser/1219609/why-is-the-alpine-docker-image-over-50-slower-than-the-ubuntu-image
