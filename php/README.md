@@ -7,6 +7,8 @@ GitHub
 [Code](https://github.com/ec-cube2/docker)
 [Issues](https://github.com/ec-cube2/docker/issue)
 
+See [README](https://github.com/ec-cube2/docker/blob/master/README.md)
+[Docker Hub](https://hub.docker.com/r/eccube2/php)
 
 php:* イメージとの違い
 --------------------
