@@ -2,6 +2,7 @@ FROM php:5.6-fpm
 
 # ext-gd: libfreetype6-dev libjpeg62-turbo-dev libpng-dev
 # ext-mcrypt: libmcrypt-dev
+# ext-pgsql: libpq-dev
 # ext-zip: libzip-dev zlib1g-dev
 # ext-opcache: libpcre3-dev
 RUN apt-get update && apt-get upgrade -y \
@@ -9,6 +10,7 @@ RUN apt-get update && apt-get upgrade -y \
         git unzip curl apt-transport-https gnupg wget \
         libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
         libmcrypt-dev \
+        libpq-dev \
         libzip-dev zlib1g-dev \
         libpcre3-dev \
     && apt-get clean \
