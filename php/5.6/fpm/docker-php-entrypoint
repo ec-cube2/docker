@@ -3,6 +3,15 @@ set -e
 
 BASE="/var/www/app"
 
+DIST="/usr/local/etc/php-fpm.d/www.conf.dist"
+ORIG="/usr/local/etc/php-fpm.d/www.conf"
+if [ ! -e $DIST ]; then
+  cp -f $ORIG $DIST
+else
+  cp -f $DIST $ORIG
+fi
+rm -f /usr/local/etc/php/conf.d/docker.ini
+
 # php config
 if [ -n "${TZ}" ]; then
     echo "date.timezone = ${TZ}" >> /usr/local/etc/php/conf.d/docker.ini
