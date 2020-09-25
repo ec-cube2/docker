@@ -32,6 +32,12 @@ PHP 5.6 / 7.1 のベースイメージは更新されないため、 apt-get upg
 設定
 ----
 
+以下の環境変数でApacheの設定が可能です。
+
+| ENV                  | Directive    | Default           |
+| --- | --- | --- |
+| APACHE_DOCUMENT_ROOT | DocumentRoot | /var/www/app/html |
+
 以下の環境変数でPHPの設定が可能です。
 
 | ENV | ini | Default |
