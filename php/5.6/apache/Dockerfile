@@ -1,5 +1,7 @@
 FROM php:5.6-apache
 
+ENV APACHE_DOCUMENT_ROOT /var/www/app/html
+
 # ext-gd: libfreetype6-dev libjpeg62-turbo-dev libpng-dev
 # ext-mcrypt: libmcrypt-dev
 # ext-pgsql: libpq-dev
@@ -26,6 +28,11 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 # entrypoint
 COPY docker-php-entrypoint /usr/local/bin/
+
+RUN mkdir -p ${APACHE_DOCUMENT_ROOT} \
+  && sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+  && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
+  ;
 
 # workdir
 WORKDIR /var/www/app
