@@ -31,5 +31,4 @@ WORKDIR /var/www/app
 
 # Enable SSL
 RUN a2enmod ssl rewrite headers
-RUN a2ensite default-ssl
 EXPOSE 443
