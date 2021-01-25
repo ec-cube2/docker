@@ -65,6 +65,16 @@ Apache
 
 `eccube2/php:7.4-apache`
 
+### PHP 8.0
+
+Nginx + PHP-FRM
+
+`eccube2/php:8.0-fpm` + `eccube2/nginx:latest`
+
+Apache
+
+`eccube2/php:8.0-apache`
+
 
 EC-CUBE 2.13
 ------------
